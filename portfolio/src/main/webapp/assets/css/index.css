@@ -1,0 +1,261 @@
+/* Define style for top navigation bar */
+.topnav {
+  overflow: hidden;
+  color: black;
+  font-family: 'Roboto', sans-serif;
+  margin-left: 2%;
+  margin-right: 2%;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  position: fixed;
+  top: 0;
+  width: 96%;
+  opacity: 90%;
+  background-color: none;
+  transition: 0.5s ease-in-out;
+  z-index: 2;
+}
+
+/* When scrolled down, the navbar's bottom edges are curved */
+.colored {
+  background-color: #F9B5AB;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+/* Lines to separate the navbar from the page body, with fading transition */
+#nav-separator {
+  padding-top: 65px;
+  margin-left: 3%;
+  margin-right: 3%;
+  border-bottom: 1px solid white;
+  transition: opacity 0.5s ease-in-out;
+  z-index: 0;
+}
+
+#nav-separator-bottom {
+  padding-top: 8px;
+  margin-left: 4%;
+  margin-right: 4%;
+  border-bottom: 1px solid white;
+  transition: opacity 0.5s ease-in-out;
+  z-index: 0;
+}
+
+.fade {
+  opacity: 0;
+}
+
+.active {
+  opacity: 1;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  color: white;
+  text-align: center;
+  padding: 15px 15px;
+  margin-right: 10px;
+  font-size: 20px;
+  text-decoration: none;
+  position: relative;
+  cursor: pointer;
+  float: right;
+}
+
+/* Hide the link that should open and close the topnav on small screens */
+.topnav .icon {
+  display: none;
+}
+
+/* When the screen is less than 640 pixels wide, hide all links. Show the link that contains should open and close the topnav (.icon) */
+@media screen and (max-width: 640px) {
+  .topnav a {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+  .title {
+    font-size: 40px;
+  }
+}
+
+/* Added when user clicks on the icon. Displays links vertically instead of horizontally. */
+@media screen and (max-width: 640px) {
+  .topnav.responsive a.icon {
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: right;
+  }
+  .pullUp.responsive a:before
+  {
+      position: absolute;
+      height: 100%;
+      width: 0px;
+      right: 0px;
+      left: 100%;
+      bottom: 0px;
+      content: '';
+      background: white;
+      border-radius: 10px;
+      opacity: 0.3;
+      transition: all 0.5s;
+      transition-timing-function: ease-out;
+  }
+
+  .pullUp.responsive a:hover:before
+  {
+      width: 100%;
+      left: 0;
+  }
+}
+
+/* Pull up  */
+div.pullUp a:before
+{
+    position: absolute;
+    width: 100%;
+    height: 0px;
+    left: 0px;
+    bottom: 0px;
+    content: '';
+    background: white;
+    border-radius: 10px;
+    opacity: 0.3;
+    transition: all 0.3s;
+    transition-timing-function: ease-out;
+}
+
+div.pullUp a:hover:before
+{
+    height: 100%;
+}
+
+/* main headers */
+h1 {
+  font-size: 56px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+  color: #5C0F0F;
+  text-align: center;
+}
+
+#hi {
+  margin-right: 40%;
+}
+
+#name {
+  color: #F37D3A;
+  margin-right: 15%;
+  margin-top: -20px;
+}
+
+/* Make entire background a sunset-colored gradient */
+html {
+  background-image: linear-gradient(to bottom right, #F38080, #FCBDA2, #FFD79A);
+  background-repeat: no-repeat;
+
+  min-height: 100%;
+}
+
+/* Left and right containers for the info card */
+.left {
+  flex: 1;
+  margin: 4% 10%;
+}
+
+.right {
+  flex: 1;
+  margin-right: 10%;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  font-weight: 100;
+  align-items: flex-end;
+  margin-right: 5%;
+}
+
+/* Remove the nonessential cat image to fit on small displays */
+@media screen and (max-width: 640px) {
+  .right {
+    display: none;
+  }
+  .info {
+    align-items: center;
+  }
+}
+
+/* Create info card */
+.card {
+  overflow: hidden;
+  border-radius: 20px;
+  background-color: white;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 2%;
+  padding-bottom: 10%;
+  float: center;
+  width: 80%;
+  justify-content: center;
+}
+
+@media only screen and (min-width:640px) {
+  .card {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+/* specify cat picture responsive size */
+#aicon {
+  margin-top: 60%;
+  width: 270px;
+  max-width: 100%;
+  border-radius: 135px;
+  box-shadow: 2px 2px 5px grey;
+}
+
+p {
+  width: 70%;
+  font-family: 'Roboto', sans-serif;
+  color: #5C0F0F;
+}
+
+.b {
+  font-weight: 900;
+  color: #A11313;
+}
+
+a {
+  text-decoration: none;
+}
+
+.orange {
+  color: #F37D3A;
+}
+
+/* define style for social media & contact icons */
+.socials {
+  width: 70%;
+  display: flex;
+  justify-content: flex-start;
+  font-size: 30px;
+}
+
+.icon {
+  color: #5C0F0F;
+  margin-right: 15px;
+  opacity: 0.5;
+}
+
+.icon:hover {
+  opacity: 0.8;
+}

@@ -1,18 +1,63 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
   <head>
-    <meta charset="UTF-8">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Personal website" />
+    <title>Jeremy Wang</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/index.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script type="text/javascript" src="assets/js/script.js"></script> 
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="shortcut icon" href="favicon.ico" />
   </head>
+
   <body>
-    <div id="content">
-      <h1>My Portfolio</h1>
-      <p>This is my portfolio.</p>
-      <p>Click here to get a random message:</p>
-      <button onclick="addRandomGreeting()">Hello</button>
-      <div id="greeting-container"></div>
+
+    <!-- Navbar -->
+    <header>
+      <div id="navbar" class="topnav sticky pullUp">
+        <a href="javascript:void(0);" class="icon" onclick="responsiveNav()">
+          <i class="fa fa-bars" id="navmenu"></i>
+        </a>
+        <a href="photography.html">PHOTOGRAPHY</a>
+        <a href="software.html">SOFTWARE</a>
+        <a href="index.html">ABOUT</a>
+      </div>
+      <div id="nav-separator" class="separator active"></div>
+      <div id="nav-separator-bottom" class="separator active"></div>
+    </header>
+
+    <!-- Center white card on the homepage -->
+    <div class="card">
+      <!-- On the left half of the page, there is information about myself -->
+      <div class="left">
+        <div class="info">
+        <!-- title and introduction -->
+        <h1 id="hi" class="title">hi, i'm</h1>
+        <h1 id="name" class="title">jeremy!</h1>
+        
+          <p>I’m a <a href="https://www.cs.cmu.edu/" target="_blank"><span class="b">computer science</span></a> and <a href="https://www.hcii.cmu.edu/" target="_blank"><span class="b">human-computer interaction</span></a> student at 
+          <a href="https://www.cmu.edu/" target="_blank"><span class="b">Carnegie Mellon University</span></a>. I like making things! Feel free to check out my <a href="assets/resume.pdf" target="_blank"><span class="orange">resume</span></a> :)</p>
+          <p>In my free time, I prefer playing music, drawing, or spending time with my cat (her name is Meme).</p>
+          <br />
+          <div class="socials">
+            <a href="mailto:jerewang@cmu.edu"><i class="fa fa-envelope icon" aria-hidden="true"></i></a>
+            <a href="https://github.com/tomatocat" target="_blank"><i class="fa fa-github icon" aria-hidden="true"></i></a>
+            <a href="https://www.linkedin.com/in/jeremy-wang-3696b2174/" target="_blank"><i class="fa fa-linkedin-square icon" aria-hidden="true"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- On the right half of the page, a picture of my cat -->
+      <div class="right">
+        <img id="aicon" src="assets/images/aicon.jpg" />
+      </div>
+
     </div>
+​
   </body>
+
 </html>
