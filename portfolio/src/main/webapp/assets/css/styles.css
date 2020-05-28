@@ -33,14 +33,6 @@
   z-index: 0;
 }
 
-.fade {
-  opacity: 0;
-}
-
-.active {
-  opacity: 1;
-}
-
 /* Define global text style */
 body {
   font-family: 'Roboto', sans-serif;
@@ -174,7 +166,7 @@ h1 {
 }
 
 .project-block {
-  margin-top: 10px;
+  margin-top: -8%;
   margin-left: 2%;
   margin-right: 2%;
 }
@@ -182,7 +174,6 @@ h1 {
 
 /* Make main Software page responsive by using 2 columns on large screen sizes only */
 .proj-desc {
-  font-style: italic; 
   font-weight: lighter;
 }
 
@@ -190,7 +181,7 @@ h1 {
 .left {
   margin-right: 15px;
   flex: 1;
-  max-width: 600px;
+  max-width: 350px;
   align-items: flex-start;
   height: auto;
   justify-content: center;
@@ -201,7 +192,7 @@ h1 {
   opacity: 80%;
 }
 
-/* Images shoud be vertically centered with the text */
+/* Images should be vertically centered with the text */
 .right {
   flex: 1;
   justify-content: center;
@@ -211,21 +202,18 @@ h1 {
 
 /* Style the brief project descriptions */
 .right h3 {
-  font-size: 50px;
-  font-size: 3em;
+  font-size: 42px;
   color: #A11313;
 }
 
 .right h6 {
+  margin-top: -10px;
+  margin-bottom: -10px;
   font-size: 20px;
-  font-size: 1.5em;
-  margin-top: -25px;
-  margin-bottom: -20px;
 }
 
 .right p {
-  font-size: 30px;
-  font-size: 2em;
+  font-size: 16px;
 }
 
 .right h3 a {
@@ -238,19 +226,14 @@ h1 {
   color: #5C0F0F;
 }
 
-.title a {
-  text-decoration: none;
+.right p a:hover {
+  text-decoration: underline;
   color: #5C0F0F;
 }
 
-@media only screen and (max-width:1100px) {
-  .right h3 {
-    font-size: 42px;
-  }
-
-  .right p {
-    font-size: 18px;
-  }
+.title a {
+  text-decoration: none;
+  color: #5C0F0F;
 }
 
 @media screen and (max-width:1200px) {

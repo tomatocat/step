@@ -1,5 +1,5 @@
 /* Define style for top navigation bar */
-.topnav {
+.fp-viewing-home .topnav {
   overflow: hidden;
   color: black;
   font-family: 'Roboto', sans-serif;
@@ -16,23 +16,61 @@
   z-index: 2;
 }
 
-/* When scrolled down, the navbar's bottom edges are curved */
-.colored {
-  background-color: #F9B5AB;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
+/* Lines to separate the navbar from the page body, with fading transition */
+.fp-viewing-home #nav-separator {
+  padding-top: 65px;
+  margin-left: 3%;
+  margin-right: 3%;
+  border-bottom: 1px solid white;
+  transition: opacity 0.5s ease-in-out;
+  z-index: 0;
 }
 
-.fade {
-  opacity: 0;
+.fp-viewing-home #nav-separator-bottom {
+  padding-top: 8px;
+  margin-left: 4%;
+  margin-right: 4%;
+  border-bottom: 1px solid white;
+  transition: opacity 0.5s ease-in-out;
+  z-index: 0;
 }
 
-.active {
-  opacity: 1;
+.padding {
+  padding-top: 6%;
+}
+
+.down {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#down-arrow {
+  font-size: 40px;
+  color: white;
+}
+
+#down-container {
+  z-index: 0;
+  width: 30%;
+  margin-top: 2%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  margin-bottom: 2%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.down :hover {
+  background-color: white;
+  opacity: .2;
+  border-radius: 20px;
 }
 
 /* Style the links inside the navigation bar */
-.topnav a {
+.fp-viewing-home .topnav a {
   color: white;
   text-align: center;
   padding: 15px 15px;
@@ -45,7 +83,7 @@
 }
 
 /* Hide the link that should open and close the topnav on small screens */
-.topnav .icon {
+.fp-viewing-home .topnav .icon {
   display: none;
 }
 
@@ -178,7 +216,6 @@ h1 {
   overflow: hidden;
   border-radius: 20px;
   background-color: white;
-  margin-top: auto;
   margin-left: auto;
   margin-right: auto;
   padding-top: 2%;

@@ -1,30 +1,12 @@
 // Fullpage api
 new fullpage('#fullpage', {
   // options here
-
+  anchors: ['home', 'software', 'photography', 'contact'],
+  menu: '#navbar',
+  licenseKey: ''
 });
 
 //methods
-
-// Remove lines separating navbar and rest of page body
-function removeLines() {
-  var topline = document.getElementById("nav-separator");
-  var botline = document.getElementById("nav-separator-bottom");
-  topline.classList.remove("active");
-  botline.classList.remove("active");
-  topline.classList.add("fade");
-  botline.classList.add("fade");
-}
-
-// Add lines separating navbar and rest of page body
-function addLines() {
-  var topline = document.getElementById("nav-separator");
-  var botline = document.getElementById("nav-separator-bottom");
-  topline.classList.remove("fade");
-  botline.classList.remove("fade");
-  topline.classList.add("active");
-  botline.classList.add("active");  
-}
 
 // When the screen size is small enough, change the navbar to collapse into a hamburger menu
 function responsiveNav() {
@@ -51,10 +33,8 @@ function stickNav() {
   // Get the offset position of the navbar
   var sticky = navbar.offsetTop;
   if ((window.pageYOffset > sticky) || (navbar.classList.contains("responsive"))) {
-    removeLines();
     navbar.classList.add("colored");
   } else {
-    addLines();
     navbar.classList.remove("colored");
   }
 }

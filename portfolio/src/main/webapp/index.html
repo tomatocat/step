@@ -20,204 +20,228 @@
 
     <!-- Navbar -->
     <header>
-      <div id="navbar" class="topnav sticky pullUp">
+      <div id="navbar" class="topnav pullUp">
         <a href="javascript:void(0);" class="icon" onclick="responsiveNav()">
           <i class="fa fa-bars" id="navmenu"></i>
         </a>
-        <a href="#contact">CONTACT</a>
-        <a href="#photography">PHOTOGRAPHY</a>
-        <a href="#software">SOFTWARE</a>
-        <a href="#home">HOME</a>
+        <a data-menuanchor="contact" href="#contact">CONTACT</a>
+        <a data-menuanchor="photography" href="#photography">PHOTOGRAPHY</a>
+        <a data-menuanchor="software" href="#software">SOFTWARE</a>
+        <a data-menuanchor="home" href="#home">HOME</a>
+        <div id="nav-separator" class="separator"></div>
+        <div id="nav-separator-bottom" class="separator"></div>
       </div>
     </header>
 
     <!-- fullpage wrapper -->
     <div id="fullpage">
 
-    <!-- Define about section -->
-    <div class="section" id="one">
+      <!-- Define HOME section -->
+      <div class="section" id="one">
 
-      <!-- Center white card on the homepage -->
-      <div class="card">
-        <!-- On the left half of the page, there is information about myself -->
-        <div class="left">
-          <div class="info">
-          <!-- title and introduction -->
-          <h1 id="hi" class="title">hi, i'm</h1>
-          <h1 id="name" class="title">jeremy!</h1>
+        <div class="padding"></div>
 
-            <p>I’m a <a href="https://www.cs.cmu.edu/" target="_blank"><span class="b">computer science</span></a> and <a href="https://www.hcii.cmu.edu/" target="_blank"><span class="b">human-computer interaction</span></a> student at
-            <a href="https://www.cmu.edu/" target="_blank"><span class="b">Carnegie Mellon University</span></a>. I like making things! Feel free to check out my <a href="assets/resume.pdf" target="_blank"><span class="orange">resume</span></a> :)</p>
-            <p>In my free time, I prefer playing music, drawing, or spending time with my cat (her name is Meme).</p>
-            <br />
-            <div class="socials">
-              <a href="mailto:jerewang@cmu.edu"><i class="fa fa-envelope icon" aria-hidden="true"></i></a>
-              <a href="https://github.com/tomatocat" target="_blank"><i class="fa fa-github icon" aria-hidden="true"></i></a>
-              <a href="https://www.linkedin.com/in/jeremy-wang-3696b2174/" target="_blank"><i class="fa fa-linkedin-square icon" aria-hidden="true"></i></a>
+        <!-- Center white card on the homepage -->
+        <div class="card">
+          <!-- On the left half of the page, there is information about myself -->
+          <div class="left">
+            <div class="info">
+              <!-- title and introduction -->
+              <h1 id="hi" class="title">hi, i'm</h1>
+              <h1 id="name" class="title">jeremy!</h1>
+
+                <p>I’m a <a href="https://www.cs.cmu.edu/" target="_blank"><span class="b">computer science</span></a> and <a href="https://www.hcii.cmu.edu/" target="_blank"><span class="b">human-computer interaction</span></a> student at
+                <a href="https://www.cmu.edu/" target="_blank"><span class="b">Carnegie Mellon University</span></a>. I like making things! Feel free to check out my <a href="assets/resume.pdf" target="_blank"><span class="orange">resume</span></a> :)</p>
+                <p>In my free time, I prefer playing music, drawing, or spending time with my cat (her name is Meme).</p>
+                <br />
+                <div class="socials">
+                  <a href="mailto:jerewang@cmu.edu"><i class="fa fa-envelope icon" aria-hidden="true"></i></a>
+                  <a href="https://github.com/tomatocat" target="_blank"><i class="fa fa-github icon" aria-hidden="true"></i></a>
+                  <a href="https://www.linkedin.com/in/jeremy-wang-3696b2174/" target="_blank"><i class="fa fa-linkedin-square icon" aria-hidden="true"></i></a>
+                </div>
+                </div>
+            </div>
+
+
+          <!-- On the right half of the page, a picture of my cat -->
+          <div class="right">
+            <img id="aicon" src="assets/images/aicon.jpg" />
+          </div>
+        </div>
+        <!-- End white card -->
+
+        <!-- Down arrow to prompt user to go to next screen -->
+        <div class="down">
+          <a data-menuanchor="software" href="#software" id="down-container">
+            <i class="fa fa-chevron-down" id="down-arrow"></i>
+          </a>
+        </div>
+
+      </div>
+      <!-- end HOME section -->
+
+      <!-- SOFTWARE tab begins here -->
+      <div class="section">
+        <div class="main-content">
+
+          <h1 class="title">SOFTWARE</h1>
+
+          <!-- peerdea -->
+          <div class="project-block">
+            <a href="https://github.com/ykotturi/quick-feedback-with-peers" class="left"><img class="left" src="assets/images/peerdea-small.png"/></a>
+            <div class="right">
+              <h3><a href="https://github.com/ykotturi/quick-feedback-with-peers">Peerdea</a></h3>
+              <h6>Fall 2019</h6>
+              <p class="proj-desc">A research project under CMU's Human-Computer Interaction Institute about <a href="https://dl.acm.org/doi/10.1145/3325480.3326580">early-stage design feedback.</a>
+              Used React Native with Expo, querying with GraphQL to MongoDB. Learned about the design process and presented to a group of
+              masters' students at the end of the research term.</p>
+              <p><a href="https://github.com/ykotturi/quick-feedback-with-peers">Learn more about Peerdea <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></p>
             </div>
           </div>
+
+          <!-- portfolio site -->
+          <div class="project-block">
+            <a href="https://github.com/tomatocat/pui" class="left"><img class="left" src="assets/images/sitepic.png"/></a>
+            <div class="right">
+              <h3><a href="https://github.com/tomatocat/pui">Personal Website</a></h3>
+              <h6>Spring 2020 - Present</h6>
+              <p class="proj-desc">An ongoing project to build an individual and intuitive personal website.
+              Created with HTML, CSS, and JavaScript, using the libraries PhotoSwipe.js and fullPage.js.</p>
+              <p><a href="https://github.com/tomatocat/pui">Learn more about this site <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></p>
+            </div>
           </div>
 
-
-        <!-- On the right half of the page, a picture of my cat -->
-        <div class="right">
-          <img id="aicon" src="assets/images/aicon.jpg" />
         </div>
       </div>
+      <!-- end SOFTWARE section -->
 
-    </div>
+      <!-- Begin PHOTOGRAPHY section -->
+      <div class="section">
+        <div class="main-content">
 
-    <!-- SOFTWARE tab begins here -->
-    <div class="section main-content">
-      <a id="software"></a>
+          <h1 class="title">PHOTOGRAPHY</h1>
 
-      <h1 class="title">SOFTWARE</h1>
+          <!-- Root element of PhotoSwipe. Must have class pswp. -->
+          <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
 
-      <div class="project-block">
-        <a href="software/peerdea.html" class="left"><img class="left" src="assets/images/peerdea-small.png" /></a>
-        <div class="right">
-          <h3><a href="software/peerdea.html">Peerdea</a></h3>
-          <h6>Fall 2019</h6>
-          <p class="proj-desc">A research project under CMU's Human-Computer Interaction Institute about early-stage design feedback.</p>
-          <p><a href="software/peerdea.html">Learn more about Peerdea <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></p>
-        </div>
-      </div>
+            <!-- Background of PhotoSwipe.
+                 It's a separate element as animating opacity is faster than rgba(). -->
+            <div class="pswp__bg"></div>
 
-      <div class="project-block">
-        <a href="software/personal-site.html" class="left"><img class="left" src="assets/images/sitepic.png" /></a>
-        <div class="right">
-          <h3><a href="software/personal-site.html">Personal Website</a></h3>
-          <h6>Spring 2020 - Present</h6>
-          <p class="proj-desc">An ongoing project to build an individual and intuitive personal website.</p>
-          <p><a href="software/personal-site.html">Learn more about this site <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></p>
-        </div>
-      </div>
+            <!-- Slides wrapper with overflow:hidden. -->
+            <div class="pswp__scroll-wrap">
 
-    </div>
-    <!-- end SOFTWARE section -->
+              <!-- Container that holds slides.
+                  PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                  Don't modify these 3 pswp__item elements, data is added later on. -->
+              <div class="pswp__container">
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+              </div>
 
-    <!-- Begin main body -->
-    <div class="section main-content">
-      <a id="photography"></a>
+              <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+              <div class="pswp__ui pswp__ui--hidden">
 
-      <h1 class="title">PHOTOGRAPHY</h1>
+                <div class="pswp__top-bar">
 
-      <!-- Root element of PhotoSwipe. Must have class pswp. -->
-      <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+                  <!--  Controls are self-explanatory. Order can be changed. -->
 
-        <!-- Background of PhotoSwipe.
-             It's a separate element as animating opacity is faster than rgba(). -->
-        <div class="pswp__bg"></div>
+                  <div class="pswp__counter"></div>
 
-        <!-- Slides wrapper with overflow:hidden. -->
-        <div class="pswp__scroll-wrap">
+                  <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
 
-          <!-- Container that holds slides.
-              PhotoSwipe keeps only 3 of them in the DOM to save memory.
-              Don't modify these 3 pswp__item elements, data is added later on. -->
-          <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-          </div>
+                  <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
 
-          <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
-          <div class="pswp__ui pswp__ui--hidden">
+                  <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
 
-            <div class="pswp__top-bar">
-
-              <!--  Controls are self-explanatory. Order can be changed. -->
-
-              <div class="pswp__counter"></div>
-
-              <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-
-              <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
-              <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-
-              <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
-              <!-- element will get class pswp__preloader--active when preloader is running -->
-              <div class="pswp__preloader">
-                <div class="pswp__preloader__icn">
-                  <div class="pswp__preloader__cut">
-                    <div class="pswp__preloader__donut"></div>
+                  <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                  <!-- element will get class pswp__preloader--active when preloader is running -->
+                  <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
                   </div>
                 </div>
+
+                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                  <div class="pswp__share-tooltip"></div>
+                </div>
+
+                <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+                </button>
+
+                <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+                </button>
+
+                <div class="pswp__caption">
+                  <div class="pswp__caption__center"></div>
+                </div>
+
               </div>
-            </div>
 
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-              <div class="pswp__share-tooltip"></div>
-            </div>
-
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-
-            <div class="pswp__caption">
-              <div class="pswp__caption__center"></div>
             </div>
 
           </div>
+          <!-- end setup -->
+
+          <!-- insert gallery images into gallery class -->
+          <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+
+            <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+              <a href="assets/images/boxedit.jpg" itemprop="contentUrl" data-size="5184x3456">
+                <img src="assets/images/boxedit350.jpg" width="350" itemprop="thumbnail" alt="Image description" />
+              </a>
+            </figure>
+
+            <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+              <a href="assets/images/blep.jpg" itemprop="contentUrl" data-size="5184x3456">
+                <img src="assets/images/blep350.jpg" width="350" itemprop="thumbnail" alt="Image description" />
+              </a>
+            </figure>
+
+            <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+              <a href="assets/images/greenstool.jpg" itemprop="contentUrl" data-size="5184x3456">
+                <img src="assets/images/greenstool350.jpg" width="350" itemprop="thumbnail" alt="Image description" />
+              </a>
+            </figure>
+
+            <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+              <a href="assets/images/scsday_vr.jpg" itemprop="contentUrl" data-size="3456x5184">
+                <img src="assets/images/scsday_vr350.jpg" width="350" itemprop="thumbnail" alt="Image description" />
+              </a>
+              <figcaption itemprop="caption description">SCS Day 2020</figcaption>
+            </figure>
+
+            <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+              <a href="assets/images/broccolie.jpg" itemprop="contentUrl" data-size="5184x3456">
+                <img src="assets/images/broccolie350.jpg" width="350" itemprop="thumbnail" alt="Image description" />
+              </a>
+            </figure>
+
+            <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+              <a href="assets/images/scsday_gcs.jpg" itemprop="contentUrl" data-size="5184x3456">
+                <img src="assets/images/scsday_gcs350.jpg" width="350" itemprop="thumbnail" alt="Image description" />
+              </a>
+            </figure>
+          </div>
 
         </div>
-
       </div>
-      <!-- end setup -->
+      <!-- end PHOTOGRAPHY section -->
 
-      <!-- insert gallery images into gallery class -->
-      <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+      <!-- CONTACT section -->
+      <div class="section">
+        <div class="main-content">
 
-        <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-          <a href="assets/images/boxedit.jpg" itemprop="contentUrl" data-size="5184x3456">
-            <img src="assets/images/boxedit350.jpg" width="350" itemprop="thumbnail" alt="Image description" />
-          </a>
-        </figure>
+          <h1 class="title">CONTACT</h1>
+          <p>Contact me lorem ipsum</p>
 
-        <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-          <a href="assets/images/blep.jpg" itemprop="contentUrl" data-size="5184x3456">
-            <img src="assets/images/blep350.jpg" width="350" itemprop="thumbnail" alt="Image description" />
-          </a>
-        </figure>
-
-        <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-          <a href="assets/images/greenstool.jpg" itemprop="contentUrl" data-size="5184x3456">
-            <img src="assets/images/greenstool350.jpg" width="350" itemprop="thumbnail" alt="Image description" />
-          </a>
-        </figure>
-
-        <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-          <a href="assets/images/scsday_vr.jpg" itemprop="contentUrl" data-size="3456x5184">
-            <img src="assets/images/scsday_vr350.jpg" width="350" itemprop="thumbnail" alt="Image description" />
-          </a>
-          <figcaption itemprop="caption description">SCS Day 2020</figcaption>
-        </figure>
-
-        <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-          <a href="assets/images/broccolie.jpg" itemprop="contentUrl" data-size="5184x3456">
-            <img src="assets/images/broccolie350.jpg" width="350" itemprop="thumbnail" alt="Image description" />
-          </a>
-        </figure>
-
-        <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-          <a href="assets/images/scsday_gcs.jpg" itemprop="contentUrl" data-size="5184x3456">
-            <img src="assets/images/scsday_gcs350.jpg" width="350" itemprop="thumbnail" alt="Image description" />
-          </a>
-        </figure>
+        </div>
       </div>
-
-    </div>
-
-
-      <div class="section main-content">
-        <a id="contact"></a>
-
-        <h1 class="title">CONTACT</h1>
-        <p>Contact me lorem ipsum</p>
-      </div>
+      <!-- end CONTACT section -->
 
     </div>
     <!-- end fullpage wrapper -->
