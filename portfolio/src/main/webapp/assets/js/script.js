@@ -1,3 +1,11 @@
+// Fullpage api
+new fullpage('#fullpage', {
+  // options here
+
+});
+
+//methods
+
 // Remove lines separating navbar and rest of page body
 function removeLines() {
   var topline = document.getElementById("nav-separator");
@@ -52,4 +60,4 @@ function stickNav() {
 }
 
 // When the user scrolls the page, execute myFunction
-window.onscroll = function() {stickNav()};
+// window.onscroll = function() {stickNav()};
