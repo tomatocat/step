@@ -9,7 +9,7 @@ let fp = new fullpage('#fullpage', {
     initPhotoSwipeFromDOM('.my-gallery');
   },
   onLeave: function(origin, destination, direction) {
-    if (origin.index === 2) {
+    if (origin.index === 2 && typeof window.pswp != "undefined") {
       window.pswp.close();
     }
   },

@@ -810,6 +810,11 @@ var publicMethods = {
 			return;
 		}
 
+		// Jeremy changed this. Hide the navbar
+		var navbar = document.getElementById("navbar");
+		navbar.classList.add("hidden");
+		// End Jeremy changes
+
 		var i;
 
 		self.framework = framework; // basic functionality
@@ -985,6 +990,11 @@ var publicMethods = {
 		if(!_isOpen) {
 			return;
 		}
+
+		// Jeremy changed this. Show the navbar
+		var navbar = document.getElementById("navbar");
+		navbar.classList.remove("hidden");
+		// End Jeremy changes
 
 		_isOpen = false;
 		_isDestroying = true;
