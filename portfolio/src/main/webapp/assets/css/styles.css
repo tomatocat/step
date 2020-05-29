@@ -248,8 +248,7 @@ h1 {
 }
 
 .right p a:hover {
-  text-decoration: underline;
-  color: #5C0F0F;
+  color: #A11313;
 }
 
 .title a {
@@ -328,7 +327,7 @@ h1 {
   }
 }
 
-.contact-container {
+#contact-container {
   width: 100%;
   flex-direction: column;
   display: flex;
@@ -385,14 +384,9 @@ h1 {
   align-items: center;
 }
 
-#down-arrow {
-  font-size: 40px;
-  color: white;
-}
-
-#down-container {
-  z-index: 0;
+.down-container {
   width: 30%;
+  position: relative;
   margin-top: 2%;
   padding-top: 2%;
   padding-bottom: 2%;
@@ -402,10 +396,9 @@ h1 {
   align-items: center;
 }
 
-.down :hover {
-  background-color: white;
-  opacity: .2;
-  border-radius: 20px;
+#down-arrow {
+  font-size: 40px;
+  color: white;
 }
 
 /* When the screen is less than 640 pixels wide, hide all links. Show the link that contains should open and close the topnav (.icon) */
@@ -601,4 +594,8 @@ a {
 
 .link {
   z-index: 2;
+}
+
+#contact-container p:hover {
+  color: #A11313;
 }

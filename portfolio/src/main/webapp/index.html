@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="icon" href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/241/cat_1f408.png">
   </head>
 
   <body>
@@ -71,9 +72,11 @@
 
         <!-- Down arrow to prompt user to go to next screen -->
         <div class="down">
-          <a data-menuanchor="software" href="#software" id="down-container">
+          <div class="down-container pullUp">
+          <a data-menuanchor="software" href="#software">
             <i class="fa fa-chevron-down" id="down-arrow"></i>
           </a>
+          </div>
         </div>
 
       </div>
@@ -236,7 +239,7 @@
         <div class="main-content">
 
           <h1 class="title">CONTACT</h1>
-          <div class="contact-container">
+          <div id="contact-container">
             <!-- Group the text items together under one div -->
             <div>
               <h3>Designed with ❤️ by Jeremy Wang. Questions or concerns? Please let me know!</h3>
