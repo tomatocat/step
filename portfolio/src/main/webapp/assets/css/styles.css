@@ -517,16 +517,6 @@ h1 {
   margin-right: 5%;
 }
 
-/* Remove the nonessential cat image to fit on small displays */
-@media screen and (max-width: 640px) {
-  .fp-viewing-home.right {
-    display: none;
-  }
-  .info {
-    align-items: center;
-  }
-}
-
 /* Create info card */
 .card {
   overflow: hidden;
@@ -543,19 +533,36 @@ h1 {
   display: flex;
 }
 
-@media only screen and (min-width:640px) {
-  .card {
-    display: flex;
-  }
-}
-
 /* specify cat picture responsive size */
 #aicon {
   margin-top: 50%;
-  width: 270px;
-  max-width: 100%;
+  height: 270px;
+  max-height: 100%;
   border-radius: 135px;
   box-shadow: 2px 2px 5px grey;
+}
+
+/* Remove the nonessential cat image to fit on small displays */
+@media screen and (max-width: 1000px) {
+  .info {
+    align-items: center;
+  }
+  .card {
+    flex-direction: column;
+  }
+  #aicon {
+    margin-top: 15%;
+    margin-bottom: 20%;
+    height: 170px;
+  }
+  #right {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #left {
+    margin-top: 5%;
+    margin-bottom: 0;
+  }
 }
 
 p {
