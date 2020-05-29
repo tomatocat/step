@@ -140,6 +140,9 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
         // define options (if needed)
         options = {
 
+            // Only take up size of parent container
+            modal: false,
+
             // define gallery index (for URL)
             galleryUID: galleryElement.getAttribute('data-pswp-uid'),
 
@@ -183,8 +186,8 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
         }
 
         // Pass data to PhotoSwipe and initialize it
-        gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
-        gallery.init();
+        window.pswp = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
+        window.pswp.init();
     };
 
     // loop through all gallery elements and bind events
@@ -201,9 +204,3 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
         openPhotoSwipe( hashData.pid ,  galleryElements[ hashData.gid - 1 ], true, true );
     }
 };
-
-var init = function () {
-    initPhotoSwipeFromDOM('.my-gallery');
-}
-
-window.onload = init;

@@ -1,8 +1,18 @@
 // Fullpage api
-new fullpage('#fullpage', {
+let fp = new fullpage('#fullpage', {
   // options here
   anchors: ['home', 'software', 'photography', 'contact'],
   menu: '#navbar',
+  responsiveWidth: 640,
+  scrollOverflow: true,
+  afterRender: function() {
+    initPhotoSwipeFromDOM('.my-gallery');
+  },
+  onLeave: function(origin, destination, direction) {
+    if (origin.index === 2) {
+      window.pswp.close();
+    }
+  },
   licenseKey: ''
 });
 
