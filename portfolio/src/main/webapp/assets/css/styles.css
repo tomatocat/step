@@ -375,6 +375,7 @@ h1 {
 
 .padding {
   padding-top: 6%;
+  max-height: 200px;
 }
 
 .down {
@@ -491,18 +492,18 @@ h1 {
 #one {
   background-image: linear-gradient(to bottom right, #F38080, #FCBDA2, #FFD79A);
   background-repeat: no-repeat;
-
   min-height: 100%;
 }
 
 /* Left and right containers for the info card */
-.left {
+#left {
   flex: 1;
-  margin: 4% 10%;
+  margin: 4% 8%;
 }
 
-.right {
+#right {
   flex: 1;
+  margin-left: 7%;
   margin-right: 10%;
 }
 
@@ -511,13 +512,14 @@ h1 {
   flex-direction: column;
   align-self: center;
   font-weight: 100;
+  width: 100%;
   align-items: flex-end;
   margin-right: 5%;
 }
 
 /* Remove the nonessential cat image to fit on small displays */
 @media screen and (max-width: 640px) {
-  .right {
+  .fp-viewing-home.right {
     display: none;
   }
   .info {
@@ -533,22 +535,23 @@ h1 {
   margin-left: auto;
   margin-right: auto;
   padding-top: 2%;
-  padding-bottom: 10%;
+  padding-bottom: 5%;
   width: 80%;
+  max-height: 700px;
   align-self: center;
   justify-content: center;
+  display: flex;
 }
 
 @media only screen and (min-width:640px) {
   .card {
     display: flex;
-    justify-content: center;
   }
 }
 
 /* specify cat picture responsive size */
 #aicon {
-  margin-top: 60%;
+  margin-top: 50%;
   width: 270px;
   max-width: 100%;
   border-radius: 135px;
