@@ -1,0 +1,630 @@
+/* Define style for top navigation bar */
+.topnav {
+  overflow: hidden;
+  color: black;
+  margin-left: 2%;
+  margin-right: 2%;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  position: fixed;
+  top: 0;
+  width: 96%;
+  opacity: 90%;
+  transition: 0.5s ease-in-out;
+  z-index: 1;
+}
+
+#navbar.hidden {
+  display: none;
+}
+
+@media screen and (max-width: 640px) {
+  #navbar {
+    display: none;
+  }
+  #nav-separator {
+    display: none;
+  }
+}
+
+/* Style the links inside the navigation bar */
+.fp-viewing-home .topnav a {
+  color: white;
+  text-align: center;
+  padding: 15px 15px;
+  margin-right: 10px;
+  font-size: 20px;
+  text-decoration: none;
+  position: relative;
+  cursor: pointer;
+  float: right;
+}
+
+/* Hide the link that should open and close the topnav on small screens */
+.fp-viewing-home .topnav .icon {
+  display: none;
+}
+
+/* Lines to separate the navbar from the page body, with fading transition */
+#nav-separator {
+  padding-top: 65px;
+  margin-left: 3%;
+  margin-right: 3%;
+  border-bottom: 1px solid #A11313;
+  transition: opacity 0.5s ease-in-out;
+  z-index: 0;
+}
+
+#nav-separator-bottom {
+  padding-top: 8px;
+  margin-left: 4%;
+  margin-right: 4%;
+  border-bottom: 1px solid #A11313;
+  transition: opacity 0.5s ease-in-out;
+  z-index: 0;
+}
+
+/* Define global text style */
+body {
+  font-family: 'Roboto', sans-serif;
+  color: #5C0F0F;
+  margin-bottom: 10%;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  color: #A11313;
+  text-align: center;
+  padding: 15px 15px;
+  margin-right: 10px;
+  font-size: 20px;
+  text-decoration: none;
+  position: relative;
+  cursor: pointer;
+  float: right;
+}
+
+/* Hide the link that should open and close the topnav on small screens */
+.topnav .icon {
+  display: none;
+}
+
+/* When the screen is less than 640 pixels wide, hide all links. Show the link that contains should open and close the topnav (.icon) */
+@media screen and (max-width: 640px) {
+  .topnav a {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+  .title {
+    font-size: 40px;
+  }
+}
+
+/* Added when user clicks on the icon. Displays links vertically instead of horizontally. */
+@media screen and (max-width: 640px) {
+  .topnav.responsive a.icon {
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: right;
+  }
+  .pullUp.responsive a:before
+  {
+      position: absolute;
+      height: 100%;
+      width: 0px;
+      right: 0px;
+      left: 100%;
+      bottom: 0px;
+      content: '';
+      background: #F5C5C2;
+      border-radius: 10px;
+      opacity: 0.3;
+      transition: all 0.5s;
+      transition-timing-function: ease-out;
+  }
+
+  .pullUp.responsive a:hover:before
+  {
+      width: 100%;
+      left: 0;
+  }
+}
+
+/* Pull up  */
+div.pullUp a:before
+{
+    position: absolute;
+    width: 100%;
+    height: 0px;
+    left: 0px;
+    bottom: 0px;
+    content: '';
+    background: #F5C5C2;
+    border-radius: 10px;
+    opacity: 0.3;
+    transition: all 0.3s;
+    transition-timing-function: ease-out;
+}
+
+div.pullUp a:hover:before
+{
+    height: 100%;
+}
+
+/* main headers */
+h1 {
+  z-index: 1500;
+  font-size: 56px;
+  font-weight: 900;
+  font-family: 'Roboto', sans-serif;
+  color: #5C0F0F;
+  text-align: center;
+}
+
+.main-content {
+  padding-left: 7%;
+  padding-right: 7%;
+  padding-top: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.my-gallery img {
+  max-width: 100%;
+  height: 275px;
+  width: auto;
+}
+
+/* Make sure images aren't squished on small screens */
+@media screen and (max-width: 640px) {
+  .my-gallery img {
+    height: auto;
+  }
+}
+/* Do not display caption on gallery images until they are zoomed into on the lightbox */
+.my-gallery figcaption {
+  display: none;
+}
+
+.my-gallery figure {
+  display: block;
+  float: left;
+  margin: 0 7px 7px 0;
+}
+
+.project-block {
+  max-width: 1000px;
+  flex: 1;
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-bottom: 5%;
+}
+
+/* Make main Software page responsive by using 2 columns on large screen sizes only */
+.proj-desc {
+  font-weight: lighter;
+}
+
+/* Want images to always preserve aspect ratio and be vertically centered with the text */
+.left {
+  margin-left: 30px;
+  margin-right: 20px;
+  flex: 1;
+  max-width: 300px;
+  align-items: center;
+  height: auto;
+  justify-content: center;
+  display: flex;
+}
+
+.left img:hover {
+  opacity: 80%;
+}
+
+/* Images should be vertically centered with the text */
+.right {
+  flex: 1;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Horizontally center project text on small screens */
+@media screen and (max-width: 640px) {
+  .left {
+    padding: 0;
+    margin: auto;
+  }
+  .right {
+    align-items: center;
+  }
+}
+
+/* Style the brief project descriptions */
+.right h3 {
+  font-size: 42px;
+  color: #A11313;
+}
+
+.right h6 {
+  margin-top: -10px;
+  margin-bottom: -10px;
+  font-size: 20px;
+}
+
+.right p {
+  font-size: 16px;
+}
+
+.right h3 a {
+  text-decoration: none;
+  color: #A11313;
+}
+
+.right p a {
+  text-decoration: none;
+  color: #5C0F0F;
+}
+
+.right p a:hover {
+  color: #A11313;
+}
+
+.title a {
+  text-decoration: none;
+  color: #5C0F0F;
+}
+
+@media only screen and (min-width:640px) {
+  .project-block {
+    display: flex;
+  }
+}
+
+/* Style the "Back" link within specific project pages */
+.back {
+  font-size: 40px;
+}
+
+.back a {
+  text-decoration: none;
+  color: #5C0F0F;
+}
+
+/* Style items inside project container */
+.proj-container {
+  margin-left: 12%;
+  margin-right: 12%;
+  margin-top: 5%;
+}
+
+#proj-title {
+  margin-bottom: -15px;
+  font-size: 56px;
+  color: #A11313;
+}
+
+.proj-container p {
+  font-size: 20px;
+}
+
+.proj-container a {
+  color: #F37D3A;
+}
+
+.proj-container h3 {
+  font-size: 32px;
+  color: #A11313;
+  margin-bottom: -10px;
+}
+
+.proj-container h5 {
+  font-size: 20px;
+  margin-bottom: -10px;
+}
+
+/* For inline descriptions where the text wraps around */
+.left-img-block img {
+  margin-top: 20px;
+  max-width: 100%;
+}
+
+.left-img-block img:hover {
+  opacity: 100%;
+}
+
+@media only screen and (min-width:1150px) {
+  .left-img-block {
+    display: flex;
+    align-items: flex-start;
+  }
+}
+
+#contact-container {
+  width: 100%;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* copied over from index.css */
+/* Define style for top navigation bar */
+.fp-viewing-home .topnav {
+  overflow: hidden;
+  color: black;
+  font-family: 'Roboto', sans-serif;
+  margin-left: 2%;
+  margin-right: 2%;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  position: fixed;
+  top: 0;
+  width: 96%;
+  opacity: 90%;
+  background-color: none;
+  transition: 0.5s ease-in-out;
+  z-index: 1;
+}
+
+/* Lines to separate the navbar from the page body, with fading transition */
+.fp-viewing-home #nav-separator {
+  padding-top: 65px;
+  margin-left: 3%;
+  margin-right: 3%;
+  border-bottom: 1px solid white;
+  transition: opacity 0.5s ease-in-out;
+  z-index: 0;
+}
+
+.fp-viewing-home #nav-separator-bottom {
+  padding-top: 8px;
+  margin-left: 4%;
+  margin-right: 4%;
+  border-bottom: 1px solid white;
+  transition: opacity 0.5s ease-in-out;
+  z-index: 0;
+}
+
+.padding {
+  padding-top: 6%;
+  max-height: 200px;
+}
+
+.down {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.down-container {
+  width: 30%;
+  position: relative;
+  margin-top: 2%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  margin-bottom: 2%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#down-arrow {
+  font-size: 40px;
+  color: white;
+}
+
+/* When the screen is less than 640 pixels wide, hide all links. Show the link that contains should open and close the topnav (.icon) */
+@media screen and (max-width: 640px) {
+  .topnav a {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+  .title {
+    font-size: 40px;
+  }
+}
+
+/* Added when user clicks on the icon. Displays links vertically instead of horizontally. */
+@media screen and (max-width: 640px) {
+  .topnav.responsive a.icon {
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: right;
+  }
+  .pullUp.responsive a:before
+  {
+    position: absolute;
+    height: 100%;
+    width: 0px;
+    right: 0px;
+    left: 100%;
+    bottom: 0px;
+    content: '';
+    background: white;
+    border-radius: 10px;
+    opacity: 0.3;
+    transition: all 0.5s;
+    transition-timing-function: ease-out;
+  }
+
+  .pullUp.responsive a:hover:before
+  {
+    width: 100%;
+    left: 0;
+  }
+}
+
+/* Pull up  */
+.fp-viewing-home div.pullUp a:before
+{
+  position: absolute;
+  width: 100%;
+  height: 0px;
+  left: 0px;
+  bottom: 0px;
+  content: '';
+  background: white;
+  border-radius: 10px;
+  opacity: 0.3;
+  transition: all 0.3s;
+  transition-timing-function: ease-out;
+}
+
+.fp-viewing-home div.pullUp a:hover:before
+{
+  height: 100%;
+}
+
+#hi {
+  margin-right: 40%;
+}
+
+#name {
+  color: #F37D3A;
+  margin-right: 15%;
+  margin-top: -20px;
+}
+
+/* Make entire background a sunset-colored gradient */
+#one {
+  background-image: linear-gradient(to bottom right, #F38080, #FCBDA2, #FFD79A);
+  background-repeat: no-repeat;
+  min-height: 100%;
+}
+
+/* Left and right containers for the info card */
+#left {
+  flex: 1;
+  margin: 4% 8%;
+}
+
+#right {
+  flex: 1;
+  margin-left: 7%;
+  margin-right: 10%;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  font-weight: 100;
+  width: 100%;
+  align-items: flex-end;
+  margin-right: 5%;
+}
+
+/* Create info card */
+.card {
+  overflow: hidden;
+  border-radius: 20px;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 2%;
+  padding-bottom: 5%;
+  width: 80%;
+  max-height: 700px;
+  align-self: center;
+  justify-content: center;
+  display: flex;
+}
+
+/* specify cat picture responsive size */
+#aicon {
+  margin-top: 50%;
+  height: 270px;
+  max-height: 100%;
+  border-radius: 135px;
+  box-shadow: 2px 2px 5px grey;
+}
+
+/* Align homepage items vertically on small screens */
+@media screen and (max-width: 1000px) {
+  .info {
+    align-items: center;
+  }
+  .card {
+    flex-direction: column;
+  }
+  #aicon {
+    margin-top: 15%;
+    margin-bottom: 20%;
+    height: 170px;
+  }
+  #right {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #left {
+    margin-top: 5%;
+    margin-bottom: 0;
+  }
+}
+
+p {
+  width: 70%;
+  font-family: 'Roboto', sans-serif;
+  color: #5C0F0F;
+}
+
+.b {
+  font-weight: 900;
+  color: #A11313;
+}
+
+a {
+  text-decoration: none;
+}
+
+.orange {
+  color: #F37D3A;
+}
+
+/* define style for social media & contact icons */
+.socials {
+  width: 70%;
+  display: flex;
+  justify-content: flex-start;
+  font-size: 30px;
+}
+
+.icon {
+  color: #5C0F0F;
+  margin-right: 15px;
+  opacity: 0.5;
+}
+
+.icon:hover {
+  opacity: 0.8;
+}
+
+.link {
+  z-index: 2;
+}
+
+.divider {
+  padding: 10%;
+}
+
+#contact-container p:hover {
+  color: #A11313;
+}

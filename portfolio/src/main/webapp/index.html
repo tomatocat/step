@@ -1,18 +1,282 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
   <head>
-    <meta charset="UTF-8">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Personal website" />
+    <title>Jeremy Wang</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="assets/fullpage/fullpage.css" />
+    <link rel="stylesheet" type="text/css" href="assets/photoswipe/photoswipe.css" />
+    <link rel="stylesheet" type="text/css" href="assets/photoswipe/default-skin/default-skin.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="icon" href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/241/cat_1f408.png">
   </head>
+
   <body>
-    <div id="content">
-      <h1>My Portfolio</h1>
-      <p>This is my portfolio.</p>
-      <p>Click here to get a random message:</p>
-      <button onclick="addRandomGreeting()">Hello</button>
-      <div id="greeting-container"></div>
+
+    <!-- Navbar -->
+    <header>
+      <div id="navbar" class="topnav pullUp">
+        <a href="javascript:void(0);" class="icon" onclick="responsiveNav()">
+          <i class="fa fa-bars" id="navmenu"></i>
+        </a>
+        <a data-menuanchor="contact" href="#contact">CONTACT</a>
+        <a data-menuanchor="photography" href="#photography">PHOTOGRAPHY</a>
+        <a data-menuanchor="software" href="#software">SOFTWARE</a>
+        <a data-menuanchor="home" href="#home">HOME</a>
+        <div id="nav-separator" class="separator"></div>
+        <div id="nav-separator-bottom" class="separator"></div>
+      </div>
+    </header>
+
+    <!-- fullpage wrapper -->
+    <div id="fullpage">
+
+      <!-- Define HOME section -->
+      <div class="section" id="one">
+
+        <div class="padding"></div>
+
+        <!-- Center white card on the homepage -->
+        <div class="card">
+          <!-- On the left half of the page, there is information about myself -->
+          <div id="left">
+            <div class="info">
+              <!-- title and introduction -->
+              <h1 id="hi" class="title">hi, i'm</h1>
+              <h1 id="name" class="title">jeremy!</h1>
+
+                <p>I’m a <a href="https://www.cs.cmu.edu/" target="_blank"><span class="b">computer science</span></a> and <a href="https://www.hcii.cmu.edu/" target="_blank"><span class="b">human-computer interaction</span></a> student at
+                <a href="https://www.cmu.edu/" target="_blank"><span class="b">Carnegie Mellon University</span></a>. I like making things! Feel free to check out my <a href="assets/resume.pdf" target="_blank"><span class="orange">resume</span></a> :)</p>
+                <p>In my free time, I prefer playing music, drawing, or spending time with my cat (her name is Meme).</p>
+                <br />
+                <div class="socials">
+                  <a href="mailto:jerewang@cmu.edu"><i class="fa fa-envelope icon" aria-hidden="true"></i></a>
+                  <a href="https://github.com/tomatocat" target="_blank"><i class="fa fa-github icon" aria-hidden="true"></i></a>
+                  <a href="https://www.linkedin.com/in/jeremy-wang-3696b2174/" target="_blank"><i class="fa fa-linkedin-square icon" aria-hidden="true"></i></a>
+                </div>
+                </div>
+            </div>
+
+
+          <!-- On the right half of the page, a picture of my cat -->
+          <div id="right">
+            <img id="aicon" src="assets/images/aicon.jpg" />
+          </div>
+        </div>
+        <!-- End white card -->
+
+        <!-- Down arrow to prompt user to go to next screen -->
+        <div class="down">
+          <div class="down-container pullUp">
+          <a data-menuanchor="software" href="#software">
+            <i class="fa fa-chevron-down" id="down-arrow"></i>
+          </a>
+          </div>
+        </div>
+
+      </div>
+      <!-- end HOME section -->
+
+      <!-- extra spacing for mobile -->
+      <div class="divider"></div>
+
+      <!-- SOFTWARE tab begins here -->
+      <div class="section">
+        <div class="main-content">
+
+          <h1 class="title">SOFTWARE</h1>
+
+          <!-- peerdea -->
+          <div class="project-block">
+            <a href="https://github.com/ykotturi/quick-feedback-with-peers" class="left"><img class="left" src="assets/images/peerdea-small.png"/></a>
+            <div class="right">
+              <h3><a href="https://github.com/ykotturi/quick-feedback-with-peers">Peerdea</a></h3>
+              <h6>Fall 2019</h6>
+              <p class="proj-desc">A research project under CMU's Human-Computer Interaction Institute about <a href="https://dl.acm.org/doi/10.1145/3325480.3326580">early-stage design feedback.</a>
+              Used React Native with Expo, querying with GraphQL to MongoDB. Learned about the design process and presented to a group of
+              masters' students at the end of the research term.</p>
+              <p class="link"><a href="https://github.com/ykotturi/quick-feedback-with-peers">Learn more about Peerdea <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></p>
+            </div>
+          </div>
+
+          <!-- portfolio site -->
+          <div class="project-block">
+            <a href="https://github.com/tomatocat/pui" class="left"><img class="left" src="assets/images/sitepic.png"/></a>
+            <div class="right">
+              <h3><a href="https://github.com/tomatocat/pui">Personal Website</a></h3>
+              <h6>Spring 2020 - Present</h6>
+              <p class="proj-desc">An ongoing project to build an individual and intuitive personal website.
+              Created with HTML, CSS, and JavaScript, using the libraries PhotoSwipe.js and fullPage.js.</p>
+              <p><a href="https://github.com/tomatocat/pui">Learn more about this site <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <!-- end SOFTWARE section -->
+
+      <!-- extra spacing for mobile -->
+      <div class="divider"></div>
+
+      <!-- Begin PHOTOGRAPHY section -->
+      <div class="section">
+        <div class="main-content">
+
+          <h1 class="title">PHOTOGRAPHY</h1>
+
+          <!-- Root element of PhotoSwipe. Must have class pswp. -->
+          <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+            <!-- Background of PhotoSwipe.
+                 It's a separate element as animating opacity is faster than rgba(). -->
+            <div class="pswp__bg"></div>
+
+            <!-- Slides wrapper with overflow:hidden. -->
+            <div class="pswp__scroll-wrap">
+
+              <!-- Container that holds slides.
+                  PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                  Don't modify these 3 pswp__item elements, data is added later on. -->
+              <div class="pswp__container">
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+              </div>
+
+              <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+              <div class="pswp__ui pswp__ui--hidden">
+
+                <div class="pswp__top-bar">
+
+                  <!--  Controls are self-explanatory. Order can be changed. -->
+
+                  <div class="pswp__counter"></div>
+
+                  <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                  <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                  <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                  <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                  <!-- element will get class pswp__preloader--active when preloader is running -->
+                  <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                  <div class="pswp__share-tooltip"></div>
+                </div>
+
+                <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+                </button>
+
+                <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+                </button>
+
+                <div class="pswp__caption">
+                  <div class="pswp__caption__center"></div>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+          <!-- end setup -->
+
+          <!-- insert gallery images into gallery class -->
+          <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+
+            <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+              <a href="assets/images/boxedit.jpg" itemprop="contentUrl" data-size="5184x3456">
+                <img src="assets/images/boxedit350.jpg" width="350" itemprop="thumbnail" alt="Image description" />
+              </a>
+            </figure>
+
+            <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+              <a href="assets/images/blep.jpg" itemprop="contentUrl" data-size="5184x3456">
+                <img src="assets/images/blep350.jpg" width="350" itemprop="thumbnail" alt="Image description" />
+              </a>
+            </figure>
+
+            <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+              <a href="assets/images/greenstool.jpg" itemprop="contentUrl" data-size="5184x3456">
+                <img src="assets/images/greenstool350.jpg" width="350" itemprop="thumbnail" alt="Image description" />
+              </a>
+            </figure>
+
+            <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+              <a href="assets/images/scsday_vr.jpg" itemprop="contentUrl" data-size="3456x5184">
+                <img src="assets/images/scsday_vr350.jpg" width="350" itemprop="thumbnail" alt="Image description" />
+              </a>
+              <figcaption itemprop="caption description">SCS Day 2020</figcaption>
+            </figure>
+
+            <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+              <a href="assets/images/broccolie.jpg" itemprop="contentUrl" data-size="5184x3456">
+                <img src="assets/images/broccolie350.jpg" width="350" itemprop="thumbnail" alt="Image description" />
+              </a>
+            </figure>
+
+            <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+              <a href="assets/images/scsday_gcs.jpg" itemprop="contentUrl" data-size="5184x3456">
+                <img src="assets/images/scsday_gcs350.jpg" width="350" itemprop="thumbnail" alt="Image description" />
+              </a>
+            </figure>
+          </div>
+
+        </div>
+      </div>
+      <!-- end PHOTOGRAPHY section -->
+
+      <!-- CONTACT section -->
+      <div class="section">
+        <div class="main-content">
+
+          <h1 class="title">CONTACT</h1>
+          <div id="contact-container">
+            <!-- Group the text items together under one div -->
+            <div>
+              <h3>Designed with ❤️ by Jeremy Wang. Questions or concerns? Please let me know!</h3>
+
+              <a href="mailto:jerewang@cmu.edu">
+                <p><i class="fa fa-envelope icon" aria-hidden="true"></i> jerewang@cmu.edu</p>
+              </a>
+              <a href="https://github.com/tomatocat" target="_blank">
+                <p><i class="fa fa-github icon" aria-hidden="true"></i> https://github.com/tomatocat</p>
+              </a>
+              <a href="https://www.linkedin.com/in/jeremy-wang-3696b2174/" target="_blank">
+                <p><i class="fa fa-linkedin-square icon" aria-hidden="true"></i> https://www.linkedin.com/in/jeremy-wang-3696b2174/</p>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <!-- end CONTACT section -->
+
     </div>
+    <!-- end fullpage wrapper -->
+
+    <!-- js footer -->
+    <script type="text/javascript" src="assets/js/galleryscript.js"></script>
+    <script type="text/javascript" src="assets/fullpage/scrolloverflow.min.js"></script>
+    <script type="text/javascript" src="assets/fullpage/fullpage.min.js"></script>
+    <script type="text/javascript" src="assets/photoswipe/photoswipe.js"></script>
+    <script type="text/javascript" src="assets/photoswipe/photoswipe-ui-default.js"></script>
+    <script type="text/javascript" src="assets/js/script.js"></script>
+​
   </body>
+
 </html>
