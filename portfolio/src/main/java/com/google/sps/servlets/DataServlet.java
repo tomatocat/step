@@ -16,9 +16,9 @@ package com.google.sps.servlets;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
+import com.google.appengine.api.datastore.*;
 import com.google.gson.Gson;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -29,19 +29,34 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
 
-  List<String> comments = new ArrayList<>(Arrays.asList("hello", "comment2", "goodbye"));
-
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    String json = new Gson().toJson(comments);
+    Query query = new Query("Comment").addSort("timestamp", Query.SortDirection.DESCENDING);
+
+    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+    PreparedQuery results = datastore.prepare(query);
+
+    List<String> comments = new ArrayList<>();
+    for (Entity entity : results.asIterable()) {
+      comments.add((String) entity.getProperty("body"));
+    }
+
     response.setContentType("application/json;");
-    response.getWriter().println(json);
+    response.getWriter().println(new Gson().toJson(comments));
   }
 
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    String comment = getParameter(request, "comment", "No comment added.");
-    comments.add(comment);
+    String body = getParameter(request, "comment", "No comment added.");
+
+    long timestamp = System.currentTimeMillis();
+
+    Entity taskEntity = new Entity("Comment");
+    taskEntity.setProperty("body", body);
+    taskEntity.setProperty("timestamp", timestamp);
+
+    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+    datastore.put(taskEntity);
 
     response.sendRedirect("/index.html"); // TODO redirect to comments section
   }
