@@ -49,7 +49,9 @@ function stickNav() {
   }
 }
 
-window.onload = function () { fetch('/data').then(response => response.text()).then((quote) => {
+window.onload = function () { fetch('/data')
+    .then(response => response.json())
+    .then((quote) => {
   document.getElementById('servlet').innerText = quote;}) };
 
 // When the user scrolls the page, execute myFunction
