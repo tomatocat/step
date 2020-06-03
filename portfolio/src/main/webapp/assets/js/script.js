@@ -49,10 +49,20 @@ function stickNav() {
   }
 }
 
-window.onload = function () { fetch('/data')
+// fetch data from servlet
+function doGet() {
+  let numCom = document.getElementById('num-comments').value;
+  fetch('/data?numCom='+ numCom)
     .then(response => response.json())
     .then((quote) => {
-  document.getElementById('servlet').innerText = quote;}) };
+  document.getElementById('servlet').innerText = quote;});
+}
+
+// delete comments on webpage
+function doDel() {
+  fetch('/delete-comment', {method: 'POST'})
+      .then(response => doGet());
+}
 
 // When the user scrolls the page, execute myFunction
 // window.onscroll = function() {stickNav()};
