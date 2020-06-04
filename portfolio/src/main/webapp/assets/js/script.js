@@ -64,5 +64,24 @@ function doDel() {
       .then(response => doGet());
 }
 
+function loginCheck() {
+  let authCheck = document.getElementById('auth-check');
+  let commentSection = document.getElementById('comment-section');
+  fetch('auth')
+      .then(response => response.json())
+      .then((json) => {
+        if (json.isAuth && commentSection.classList.contains("hidden")) {
+          commentSection.classList.remove("hidden");
+        } else {
+          commentSection.classList.add("hidden");
+        }
+        console.log(json);
+        authCheck.innerHTML = json.bodyText;
+      });
+
+}
+
+window.onload = function() { loginCheck(); };
+
 // When the user scrolls the page, execute myFunction
 // window.onscroll = function() {stickNav()};

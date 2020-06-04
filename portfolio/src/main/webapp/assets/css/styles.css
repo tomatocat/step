@@ -628,3 +628,7 @@ a {
 #contact-container p:hover {
   color: #A11313;
 }
+
+.hidden {
+  display: none;
+}
