@@ -16,8 +16,6 @@ let fp = new fullpage('#fullpage', {
   licenseKey: ''
 });
 
-//methods
-
 // When the screen size is small enough, change the navbar to collapse into a hamburger menu
 function responsiveNav() {
   var navbar = document.getElementById("navbar");
@@ -85,19 +83,22 @@ function fetchBlobstore() {
       .then((response) => response.text())
       .then((imageUploadUrl) => {
         const messageForm = document.getElementById('comment-form');
-        messageForm.action = imageUploadUrl;
-        // messageForm.onsubmit = submitUpload(imageUploadUrl);
+        messageForm.onsubmit = submitUpload(imageUploadUrl);
       });
 }
 
-// try some higher order function
+// Submits comment with optional image upload on attached blobstore URL.
 function submitUpload (url) {
   return function () {
-    console.log(url);
+    const form = new FormData(document.getElementById('comment-form'));
     $.ajax({
       url: url,
       type:'POST',
-      data:$('#comment-form').serialize(),
+      data: form,
+      enctype: 'multipart/form-data',
+      processData:false,
+      contentType:false,
+      cache: false,
       success: function() {
         doGet();
       },
@@ -107,10 +108,12 @@ function submitUpload (url) {
         console.log(errorThrown);
       }
     });
+    $('#comment-form')[0].reset();
     return false;
   }
 }
 
+// Submits comment without image attached. Currently unused function.
 function submitComment() {
   $.ajax({
     url:'/data',
@@ -130,5 +133,3 @@ window.onload = function() {
   loginCheck();
 };
 
-// When the user scrolls the page, execute myFunction
-// window.onscroll = function() {stickNav()};
