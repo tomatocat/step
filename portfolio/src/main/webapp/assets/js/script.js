@@ -86,10 +86,32 @@ function fetchBlobstore() {
       .then((imageUploadUrl) => {
         const messageForm = document.getElementById('comment-form');
         messageForm.action = imageUploadUrl;
+        // messageForm.onsubmit = submitUpload(imageUploadUrl);
       });
 }
 
-function submitComment (){
+// try some higher order function
+function submitUpload (url) {
+  return function () {
+    console.log(url);
+    $.ajax({
+      url: url,
+      type:'POST',
+      data:$('#comment-form').serialize(),
+      success: function() {
+        doGet();
+      },
+      error: function (xhr, textStatus, errorThrown) {
+        console.log(xhr);
+        console.log(textStatus);
+        console.log(errorThrown);
+      }
+    });
+    return false;
+  }
+}
+
+function submitComment() {
   $.ajax({
     url:'/data',
     type:'POST',
@@ -103,7 +125,7 @@ function submitComment (){
 }
 
 window.onload = function() {
-  // fetchBlobstore();
+  fetchBlobstore();
   doGet();
   loginCheck();
 };
