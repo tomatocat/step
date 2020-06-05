@@ -75,13 +75,37 @@ function loginCheck() {
         } else {
           commentSection.classList.add("hidden");
         }
-        console.log(json);
         authCheck.innerHTML = json.bodyText;
       });
 
 }
 
-window.onload = function() { loginCheck(); };
+function fetchBlobstore() {
+  fetch('/blobstore-upload-url')
+      .then((response) => response.text())
+      .then((imageUploadUrl) => {
+        const messageForm = document.getElementById('comment-form');
+        messageForm.action = imageUploadUrl;
+      });
+}
+
+function submitComment (){
+  $.ajax({
+    url:'/data',
+    async: false,
+    type:'POST',
+    data:$('#comment-form').serialize()
+  });
+  doGet();
+  $('#comment-form')[0].reset();
+  return false;
+}
+
+window.onload = function() {
+  // fetchBlobstore();
+  doGet();
+  loginCheck();
+};
 
 // When the user scrolls the page, execute myFunction
 // window.onscroll = function() {stickNav()};

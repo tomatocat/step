@@ -268,13 +268,16 @@
 
               <div id="comment-section" class="hidden">
                 <!-- Comment box -->
-                <form action="/data" method="POST">
+                <form id="comment-form" onsubmit="return submitComment();">
 
                   <h3>Enter a comment!</h3>
                   <p><label for="name-box">Name</label>
                     <input id="name-box" name="name" placeholder="Anonymous" /></p>
                   <p><label for="comment-box">Comment:</label></p>
                   <textarea id="comment-box" name="comment" placeholder="Your comment here..."></textarea>
+                  <br/>
+                  <p>Upload an image:</p>
+                  <input type="file" name="image">
                   <br/><br/>
 
                   <input id="submit-comment" type="submit" />
@@ -307,6 +310,7 @@
 
     <!-- js footer -->
     <script type="text/javascript" src="assets/js/galleryscript.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="assets/fullpage/scrolloverflow.min.js"></script>
     <script type="text/javascript" src="assets/fullpage/fullpage.min.js"></script>
     <script type="text/javascript" src="assets/photoswipe/photoswipe.js"></script>
