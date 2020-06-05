@@ -92,11 +92,12 @@ function fetchBlobstore() {
 function submitComment (){
   $.ajax({
     url:'/data',
-    async: false,
     type:'POST',
-    data:$('#comment-form').serialize()
+    data:$('#comment-form').serialize(),
+    success: function() {
+      doGet();
+    }
   });
-  doGet();
   $('#comment-form')[0].reset();
   return false;
 }
