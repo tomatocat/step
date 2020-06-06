@@ -16,7 +16,9 @@ let fp = new fullpage('#fullpage', {
   licenseKey: ''
 });
 
-// When the screen size is small enough, change the navbar to collapse into a hamburger menu
+/** When the screen size is small enough,
+ *  change the navbar to collapse into a hamburger menu.
+ */
 function responsiveNav() {
   var navbar = document.getElementById("navbar");
   var navmenu = document.getElementById("navmenu");
@@ -34,7 +36,9 @@ function responsiveNav() {
   }
 }
 
-// Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+/** Add the sticky class to the navbar when you reach its scroll position.
+ *  Remove "sticky" when you leave the scroll position
+ */
 function stickNav() {
   // Get the navbar
   var navbar = document.getElementById("navbar");
@@ -47,21 +51,42 @@ function stickNav() {
   }
 }
 
-// fetch data from servlet
+/** Fetches comment data from servlet. */
 function doGet() {
   let numCom = document.getElementById('num-comments').value;
+  $("#servlet").empty();
   fetch('/data?numCom='+ numCom)
     .then(response => response.json())
-    .then((quote) => {
-  document.getElementById('servlet').innerText = quote;});
+    .then((comments) => {
+      const commentBox = document.getElementById('servlet');
+      comments.forEach((comment) => {
+        commentBox.appendChild(createComment(comment));
+      })
+    });
 }
 
-// delete comments on webpage
+/** Creates an element that represents a comment. */
+function createComment(comment) {
+  const taskElement = document.createElement('div');
+
+  const image = document.createElement('img');
+  image.src = comment.img;
+
+  const commentBody = document.createElement('p');
+  commentBody.innerText = comment.body;
+
+  taskElement.appendChild(image);
+  taskElement.appendChild(commentBody);
+  return taskElement;
+}
+
+/** Delete all comments on the page. */
 function doDel() {
   fetch('/delete-comment', {method: 'POST'})
       .then(response => doGet());
 }
 
+/** Check if the user is authenticated through the auth servlet. */
 function loginCheck() {
   let authCheck = document.getElementById('auth-check');
   let commentSection = document.getElementById('comment-section');
@@ -78,6 +103,7 @@ function loginCheck() {
 
 }
 
+/** Create blobstore url and make the form submit redirect to it. */
 function fetchBlobstore() {
   fetch('/blobstore-upload-url')
       .then((response) => response.text())
@@ -87,7 +113,7 @@ function fetchBlobstore() {
       });
 }
 
-// Submits comment with optional image upload on attached blobstore URL.
+/** Submits comment with optional image upload on attached blobstore URL. */
 function submitUpload (url) {
   return function () {
     const form = new FormData(document.getElementById('comment-form'));
@@ -113,7 +139,7 @@ function submitUpload (url) {
   }
 }
 
-// Submits comment without image attached. Currently unused function.
+/** Submits comment without image attached. Currently unused function. */
 function submitComment() {
   $.ajax({
     url:'/data',
@@ -127,6 +153,9 @@ function submitComment() {
   return false;
 }
 
+/** Generate blobstore URL, get the comments, and check for user authentication
+ *  when the window loads.
+ */
 window.onload = function() {
   fetchBlobstore();
   doGet();
