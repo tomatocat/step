@@ -16,6 +16,9 @@ let fp = new fullpage('#fullpage', {
   licenseKey: ''
 });
 
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
 /** When the screen size is small enough,
  *  change the navbar to collapse into a hamburger menu.
  */
@@ -139,18 +142,124 @@ function submitUpload (url) {
   }
 }
 
-/** Submits comment without image attached. Currently unused function. */
-function submitComment() {
-  $.ajax({
-    url:'/data',
-    type:'POST',
-    data:$('#comment-form').serialize(),
-    success: function() {
-      doGet();
-    }
+/** Creates a chart and adds it to the page. */
+function drawChart() {
+  const data = new google.visualization.DataTable();
+  data.addColumn('string', 'Animal');
+  data.addColumn('number', 'Count');
+  data.addRows([
+    ['Lions', 10],
+    ['Tigers', 5],
+    ['Bears', 15]
+  ]);
+
+  const options = {
+    'title': 'Zoo Animals',
+    'width':500,
+    'height':400
+  };
+
+  const chart = new google.visualization.PieChart(
+      document.getElementById('chart-container'));
+  chart.draw(data, options);
+}
+
+/** Initialize Google Map api in stylized dark mode*/
+var map;
+function initMap() {
+  var uluru = {lat: -25.344, lng: 131.036};
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: -34.397, lng: 150.644},
+    zoom: 8,
+    styles: [
+      {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
+      {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
+      {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
+      {
+        featureType: 'administrative.locality',
+        elementType: 'labels.text.fill',
+        stylers: [{color: '#d59563'}]
+      },
+      {
+        featureType: 'poi',
+        elementType: 'labels.text.fill',
+        stylers: [{color: '#d59563'}]
+      },
+      {
+        featureType: 'poi.park',
+        elementType: 'geometry',
+        stylers: [{color: '#263c3f'}]
+      },
+      {
+        featureType: 'poi.park',
+        elementType: 'labels.text.fill',
+        stylers: [{color: '#6b9a76'}]
+      },
+      {
+        featureType: 'road',
+        elementType: 'geometry',
+        stylers: [{color: '#38414e'}]
+      },
+      {
+        featureType: 'road',
+        elementType: 'geometry.stroke',
+        stylers: [{color: '#212a37'}]
+      },
+      {
+        featureType: 'road',
+        elementType: 'labels.text.fill',
+        stylers: [{color: '#9ca5b3'}]
+      },
+      {
+        featureType: 'road.highway',
+        elementType: 'geometry',
+        stylers: [{color: '#746855'}]
+      },
+      {
+        featureType: 'road.highway',
+        elementType: 'geometry.stroke',
+        stylers: [{color: '#1f2835'}]
+      },
+      {
+        featureType: 'road.highway',
+        elementType: 'labels.text.fill',
+        stylers: [{color: '#f3d19c'}]
+      },
+      {
+        featureType: 'transit',
+        elementType: 'geometry',
+        stylers: [{color: '#2f3948'}]
+      },
+      {
+        featureType: 'transit.station',
+        elementType: 'labels.text.fill',
+        stylers: [{color: '#d59563'}]
+      },
+      {
+        featureType: 'water',
+        elementType: 'geometry',
+        stylers: [{color: '#17263c'}]
+      },
+      {
+        featureType: 'water',
+        elementType: 'labels.text.fill',
+        stylers: [{color: '#515c6d'}]
+      },
+      {
+        featureType: 'water',
+        elementType: 'labels.text.stroke',
+        stylers: [{color: '#17263c'}]
+      }
+    ]
   });
-  $('#comment-form')[0].reset();
-  return false;
+  var infowindow = new google.maps.InfoWindow({
+    content: 'h.. hewwo?'
+  });
+  var marker = new google.maps.Marker({position: uluru, map: map, animation: google.maps.Animation.BOUNCE,
+                icon: 'https://maps.google.com/mapfiles/kml/shapes/parking_lot_maps.png'});
+  marker.addListener('click', function() {
+    infowindow.open(map, marker);
+  });
 }
 
 /** Generate blobstore URL, get the comments, and check for user authentication
