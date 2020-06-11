@@ -15,9 +15,36 @@
 package com.google.sps;
 
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.TreeSet;
 
 public final class FindMeetingQuery {
   public Collection<TimeRange> query(Collection<Event> events, MeetingRequest request) {
-    throw new UnsupportedOperationException("TODO: Implement this method.");
+    // try brute force solution
+
+    Collection<String> attendees = request.getAttendees();
+    long duration = request.getDuration();
+
+    // Initialize result time range (initially free the entire day)
+    // TreeSet because we want the time ranges to be unique and sorted
+    Collection<TimeRange> result = new TreeSet<>();
+    result.add(TimeRange.WHOLE_DAY);
+
+    // start with whole day and loop through events, subtracting times
+    // Assume time ranges are not ordered
+    for (Event event : events) {
+      // We only care if even attendees overlap with the request
+      if (hasOverlap(event, attendees)) {
+        TimeRange time = event.getWhen();
+      }
+    }
+    return result;
+  }
+
+  private boolean hasOverlap(Event event, Collection<String> other) {
+    Set<String> eventAttendees = new HashSet<>(event.getAttendees());
+    eventAttendees.retainAll(other);
+    return !eventAttendees.isEmpty();
   }
 }
