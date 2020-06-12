@@ -15,16 +15,16 @@
 package com.google.sps;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public final class FindMeetingQuery {
   public Collection<TimeRange> query(Collection<Event> events, MeetingRequest request) {
-    // try brute force solution
 
     Collection<String> attendees = request.getAttendees();
     long duration = request.getDuration();
     List<TimeRange> eventTimes = new ArrayList<>();
 
-    // start with whole day and loop through events, subtracting times
+    // Start with whole day and loop through events, subtracting times
     // Assume time ranges are not ordered
     for (Event event : events) {
       // We only care if even attendees overlap with the request
@@ -33,9 +33,11 @@ public final class FindMeetingQuery {
       }
     }
 
+    // Combine all occupied times, then invert them to find all the free times
     eventTimes = invert(combine(eventTimes));
-    // filter by duration (stream?) TODO
-    return eventTimes;
+
+    // Filter event times to only include times that are long enough for the request
+    return eventTimes.stream().filter(event -> event.duration() >= duration).collect(Collectors.toList());
   }
 
   /**
@@ -51,39 +53,38 @@ public final class FindMeetingQuery {
 
   /**
    * Takes in unordered list of times and orders and combines them.
+   * May return contiguous independent time ranges with no overlaps.
    * @param times The list of times.
    * @return List of times, ordered and combined.
    */
   private List<TimeRange> combine(List<TimeRange> times) {
 
-    // Perform null check
-    if (times == null) {
-      return null;
+    // Perform empty list check
+    if (times == null || times.isEmpty()) {
+      return new ArrayList<>();
     }
 
     // Sort and initialize data structures
     times.sort(TimeRange.ORDER_BY_START);
     List<TimeRange> result = new ArrayList<>();
     TimeRange prevTime = times.get(0);
-    int i = 1;
 
-    while (i < times.size()) { // Something about overlaps
-      TimeRange tmpTime = times.get(i);
+    // Go through every time in events list to accumulate unavailable timeslots
+    for (TimeRange time : times) {
 
-      // Only do something if tmpTime is not completely engulfed by prevTime
-      if (!prevTime.contains(tmpTime)) {
-        if (prevTime.overlaps(tmpTime)) {
+      // Only do something if time is not completely engulfed by prevTime
+      if (!prevTime.contains(time)) {
+        if (prevTime.overlaps(time)) {
           // By sorting and the previous if statement, this overlap can only
-          // occur in one way -- tmpTime starts & ends after prevTime.
-          // Update prevTime to include tmpTime.
-          prevTime = TimeRange.fromStartEnd(prevTime.start(), tmpTime.end(), false);
+          // occur in one way -- time starts & ends after prevTime.
+          // Update prevTime to include time.
+          prevTime = TimeRange.fromStartEnd(prevTime.start(), time.end(), false);
         } else {
           // Time ranges are completely disjoint.
           result.add(prevTime);
-          prevTime = tmpTime;
+          prevTime = time;
         }
       }
-      i++;
     }
 
     result.add(prevTime);
@@ -97,6 +98,19 @@ public final class FindMeetingQuery {
    * @return List of times not included in the original list.
    */
   private List<TimeRange> invert(List<TimeRange> times) {
-    int start = 0; // TODO
+    int start= TimeRange.START_OF_DAY;
+    List<TimeRange> result = new ArrayList<>();
+
+    // For every occupied time range, the "free" time is the end of the previous
+    // event plus the start of the current event.
+    for (TimeRange time : times) {
+      int end = time.start();
+      result.add(TimeRange.fromStartEnd(start, end, false));
+      start = time.end();
+    }
+
+    // Add in the remaining time at the end of the day, after the last event.
+    result.add(TimeRange.fromStartEnd(start, TimeRange.END_OF_DAY, true));
+    return result;
   }
 }
